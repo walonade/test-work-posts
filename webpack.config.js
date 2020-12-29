@@ -9,6 +9,10 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js'
   },
+  watch: true,
+  watchOptions: {
+    ignored: ['node_modules/**', "server/**"]
+  },
   module: {
     rules: [
       {
@@ -91,9 +95,6 @@ const config = {
       '.js',
       '.jsx'
     ]
-  },
-  devServer: {
-    contentBase: './dist'
   },
   plugins: [
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
